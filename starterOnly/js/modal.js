@@ -22,6 +22,12 @@ function launchModal() {
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+// close modal function 
+function closeM(){
+  modalbg.style.display = "none";
+}
 
+// Close Modal event
+closeModal.addEventListener("click", closeM);
 
 
