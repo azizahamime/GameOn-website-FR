@@ -143,3 +143,16 @@ function validate(){
   formModal.appendChild(fermerBtn);
 
 }
+
+// Max date input control 
+function maxDate(){
+  let today = new Date();
+
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0');
+  let yyyy = today.getFullYear();
+  let todayDate = `${yyyy}-${mm}-${dd}`;
+  return todayDate;
+}
+// set attribut max of input.type ="date"
+document.querySelector('input[type="date"]').max = maxDate();
