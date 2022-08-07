@@ -109,17 +109,15 @@ function removeMsg(field){
 function checkRadio(){
   let radioValid = false;
   radios.forEach((radio) =>  {
-          
     if (radio.checked === true){
       radioValid = true;      
     } 
   });
   if(radioValid){
     return true;
-   } else {
+  } else {
     return false;
-   }
-  
+  }
 }
 
 // validation message 
@@ -137,9 +135,10 @@ function validate(){
   formModal.appendChild(validationMsg);
 
   // add "fermer" button 
-  fermerBtn.classList.add("modal-btn");
+  fermerBtn.classList.add("btn-signup","modal-btn");
+  //fermerBtn.classList.add("modal-btn");
   fermerBtn.textContent = "Fermer";
-  fermerBtn.setAttribute("onclick","closeM()");
+  fermerBtn.onclick = closeM;
   formModal.appendChild(fermerBtn);
 
 }
