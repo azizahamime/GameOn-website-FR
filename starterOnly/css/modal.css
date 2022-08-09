@@ -366,7 +366,7 @@ input {
   color: #fff;
   position: relative;
   text-align: left;
-  /*min-width: 424px;*/
+  min-width: 424px;
 }
 .hero-content::after {
   content: "";
@@ -525,6 +525,7 @@ footer {
     background: #fff;
     color: #000;
     padding: 20px;
+    min-width: auto;
   }
   .hero-content::after {
     content: unset;
