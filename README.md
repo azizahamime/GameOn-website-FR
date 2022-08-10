@@ -4,7 +4,7 @@
 * Valider les données d'un formulaire.
 
 ## Etapes
-1. Etape 1 : Forkez [ce repo](https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR).
+1. Etape 1 : Forker [ce repo](https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR).
 2. Etape 2 : Fermer la modale en Ajoutant la fonctionnalité au bouton (x).
 3. Etape 3 : Implémenter entrées du formulaire.
 4. Etape 4 : Ajouter condition de validation ou messages d'erreur.
