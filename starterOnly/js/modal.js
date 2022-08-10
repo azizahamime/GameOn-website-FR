@@ -6,12 +6,14 @@ let formData = document.querySelectorAll(".formData");
 // Get close modal icon 
 const closeModal = document.getElementById("close-modal");
 // Get the form
-let form = document.querySelector("#modalForm");
+let form = document.getElementById("modalForm");
 // get required form fields
 let fields = document.querySelectorAll("input[required], input[minlength], input[pattern],input[nam=location]:checked");
 let radios = document.querySelectorAll ("input[type = 'radio'");//get radio inputs
 let buttonRadio = document.querySelector("input[type='radio']");
 let radioMessage = document.createElement("div");
+
+
 
 
 // mobile navbar function
@@ -37,7 +39,7 @@ function closeM(){
   modalbg.style.display = "none";
   body.style.overflowY ="auto";
 }
-
+/******************************************* */
 //add event listener for a require fields
 fields.forEach((field) =>{
   field.addEventListener('input',(e)=>{ removeMsg(field);validateField(field);});
@@ -47,7 +49,7 @@ fields.forEach((field) =>{
 radios.forEach((radio)=>{
   radio.addEventListener("change",(e)=>{
     if(checkRadio()){
-       removeMsg(radio);
+      removeMsg(radio);
     }
   });
 });
@@ -75,9 +77,12 @@ form.addEventListener("submit",(e)=>{
  
   if (valid){
     validate();
+    form.reset();
   }
   
+  
 });
+
 
 //validate fields
 function validateField(field){
@@ -125,23 +130,37 @@ function checkRadio(){
 function validate(){
 
   let formModal = document.querySelector(".modal-body");
-  let validationMsg = document.createElement("div");
   let fermerBtn = document.createElement ("button");
- 
+  let validationText = document.createElement ("p");
+  let validationMsg = document.createElement("div"); // confirmation message div
+
   form.style.display = "none";
   // add validation message
-  validationMsg.classList.add("confirmation");
-  validationMsg.innerHTML = "<span>Merci pour votre inscription</span>";
-  formModal.appendChild(validationMsg);
+  validationText.classList.add("confirmation");
+  validationText.innerHTML = "<span>Merci pour votre inscription</span>";
+  validationMsg.appendChild(validationText);
 
   // add "fermer" button 
   fermerBtn.classList.add("btn-signup","modal-btn");
   //fermerBtn.classList.add("modal-btn");
   fermerBtn.textContent = "Fermer";
   fermerBtn.onclick = closeM;
-  formModal.appendChild(fermerBtn);
+  validationMsg.appendChild(fermerBtn);
+  formModal.appendChild(validationMsg);
+  validationMsg.style.display = "block";
+
+  //////////////////////////////
+  function removeValidate(){
+    form.style.display = "block";
+    validationMsg.remove();
+  }
+  
+  fermerBtn.addEventListener("click",removeValidate);
+  closeModal.addEventListener("click",removeValidate);
 
 }
+// remove validation message and show form.reset
+
 
 // Max date input control 
 function maxDate(){
